@@ -1,910 +1,442 @@
 <!DOCTYPE html>
-<html lang="en"><head><style id="qw-theme">:root {
-  --color-bg: #faf9fc;
-  --color-text: #1a1a1a;
-  --color-navbar-bg: #f9f9fb;
-  --color-bg-chat-view: #fcfcfd;
-  --color-bg-secondary: #ffffff;
-  --color-bg-tertiary: #f9fafb;
-  --color-bg-hover: #f3f4f6;
-  --color-surface: #f9fafb;
-  --color-surface-hover: #f3f4f6;
-  --color-surface-active: #e5e7eb;
-  --color-border: rgba(0, 0, 0, .12);
-  --color-border-light: rgba(0, 0, 0, .06);
-  --color-border-strong: #d1d5db;
-  --color-primary: #4200db;
-  --color-primary-dark: #35009e;
-  --color-primary-light: #8575ff;
-  --color-primary-bg: #e8e6ff;
-  --color-primary-hover-border: #35009e;
-  --color-nav-icon-active: #4200db;
-  --color-nav-hover-border: #4200db;
-  --color-primary-alpha-3: color-mix(in srgb, #4200db 3%, transparent);
-  --color-primary-alpha-5: color-mix(in srgb, #4200db 5%, transparent);
-  --color-primary-alpha-8: color-mix(in srgb, #4200db 8%, transparent);
-  --color-primary-alpha-12: color-mix(in srgb, #4200db 12%, transparent);
-  --color-primary-alpha-15: color-mix(in srgb, #4200db 15%, transparent);
-  --color-primary-alpha-20: color-mix(in srgb, #4200db 20%, transparent);
-  --color-primary-alpha-25: color-mix(in srgb, #4200db 25%, transparent);
-  --color-primary-alpha-30: color-mix(in srgb, #4200db 30%, transparent);
-  --color-primary-alpha-40: color-mix(in srgb, #4200db 40%, transparent);
-  --color-primary-alpha-50: color-mix(in srgb, #4200db 50%, transparent);
-  --color-primary-alpha-60: color-mix(in srgb, #4200db 60%, transparent);
-  --color-primary-subtle: color-mix(in srgb, #4200db 12%, transparent);
-  --color-primary-border: color-mix(in srgb, #4200db 30%, transparent);
-  --color-focus-ring: color-mix(in srgb, #4200db 50%, transparent);
-  --color-sidebar-hover: color-mix(in srgb, #4200db 12%, transparent);
-  --color-accent: #4200db;
-  --color-accent-foreground: #4200db;
-  --color-accent-dark: #35009e;
-  --color-accent-light: #e8e6ff;
-  --color-accent-inverse: #ffffff;
-  --color-link: #4200db;
-  --color-primary-gradient-end: #e8e6ff;
-  --color-primary-bg-solid: #e8e6ff;
-  --color-user-bubble: #F3F3F7;
-  --color-text-secondary: #5e5e5e;
-  --color-text-tertiary: #656871;
-  --color-text-muted: #9ca3af;
-  --color-text-on-primary: #ffffff;
-  --color-success: #00802f;
-  --color-success-dark: #00471e;
-  --color-success-light: #d9ffd6;
-  --color-success-hover: #005c26;
-  --color-success-bg: #e6f5eb;
-  --color-success-border: #b3d9bf;
-  --color-success-foreground: #00802f;
-  --color-success-dark-foreground: #00471e;
-  --color-success-text: #00471e;
-  --color-error: #db0000;
-  --color-error-dark: #700000;
-  --color-error-light: #ffe0e0;
-  --color-error-hover: #ffe0e0;
-  --color-error-bg: #fceaea;
-  --color-error-border: #f2cccc;
-  --color-error-active-border: #db0000;
-  --color-error-foreground: #db0000;
-  --color-error-dark-foreground: #700000;
-  --color-error-inverse: #ffffff;
-  --color-error-text: #700000;
-  --color-warning: #f2b100;
-  --color-warning-dark: #573a00;
-  --color-warning-light: #fffbbd;
-  --color-warning-hover: #db9200;
-  --color-warning-bg: #fef7e6;
-  --color-warning-border: #f9dfa3;
-  --color-warning-foreground: #f2b100;
-  --color-warning-dark-foreground: #573a00;
-  --color-warning-inverse: #573a00;
-  --color-surface-warning: #fffbbd;
-  --color-text-warning: #573a00;
-  --color-info: #006ce0;
-  --color-info-dark: #002a66;
-  --color-info-light: #d1f1ff;
-  --color-info-hover: #003b8f;
-  --color-info-bg: #ebf3fc;
-  --color-info-border: #b3d1f0;
-  --color-info-foreground: #006ce0;
-  --color-info-dark-foreground: #002a66;
-  --color-info-inverse: #ffffff;
-  --color-overlay: rgba(0, 0, 0, .5);
-  --color-shadow: rgba(0, 0, 0, .08);
-  --color-hover: rgba(0, 0, 0, .05);
-  --color-tooltip-bg: rgba(0, 0, 0, .85);
-  --color-tooltip-text: #ffffff;
-  --color-voice-purple: #8575ff;
-  --color-voice-purple-dark: #4200db;
-  --color-voice-purple-light: #8575ff;
-  --color-voice-red: #db0000;
-  --color-voice-red-dark: #700000;
-  --color-voice-amber: #f2b100;
-  --color-voice-purple-glow: rgba(66, 0, 219, .4);
-  --color-voice-red-glow: rgba(219, 0, 0, .4);
-  --font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: "SF Mono", "Monaco", "Menlo", "Consolas", monospace;
-  --text-2xs: .5625rem;
-  --text-xs: .625rem;
-  --text-sm: .6875rem;
-  --text-base: .75rem;
-  --text-md: .8125rem;
-  --text-lg: .875rem;
-  --text-xl: 1rem;
-  --text-2xl: 1.125rem;
-  --text-3xl: 1.25rem;
-  --text-4xl: 1.5rem;
-  --text-5xl: 2rem;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-card: 12px;
-  --radius-lg: 16px;
-  --radius-pill: 8px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, .08);
-  --color-success-bg-solid: #d9ffd6;
-  --color-error-bg-solid: #ffe0e0;
-  --color-error-border-solid: #ffe0e0;
-  --color-warning-bg-solid: #fffbbd;
-  --color-warning-text: #573a00;
-  --color-info-bg-solid: #d1f1ff;
-  --color-info-bg-solid-alt: #d1f1ff;
-  --color-info-text: #002a66;
-  --color-info-text-alt: #002a66;
-  --color-emerald: #10b981;
-  --color-teal: #4ecdc4;
-  --color-code-bg: #F3F3F7;
-  --color-code-header-bg: #f1f3f5;
-  --color-code-text: #24292e;
-  --color-code-border: #e1e4e8;
-  --color-code-muted: #6a737d;
-  --color-inline-code-bg: #F3F3F7;
-  --color-inline-code-text: #24292e;
-  --color-inline-code-border: #e1e4e8;
-  --color-scrollbar-thumb: #d1d5db;
-  --color-scrollbar-track: transparent;
-  --color-graph-node-text: #333333;
-  --color-graph-node-text-dim: #7F8C8D;
-  --color-graph-edge-default: #95A5A6;
-  --color-graph-edge-cross: #E67E22;
-  --color-graph-edge-text: #666666;
-  --color-graph-edge-stroke: #ffffff;
-  --color-graph-highlight-bg: #FF6B6B;
-  --color-graph-highlight-border: #E74C3C;
-  --color-graph-search-bg: #FFD700;
-  --color-graph-search-border: #FFA500;
-  --color-graph-focus-border: #C0392B;
-  --color-graph-external-border: #95A5A6;
-  --color-graph-cat-file: #3498DB;
-  --color-graph-cat-folder: #7F8C8D;
-  --color-graph-cat-file-aggregate: #2980B9;
-  --color-graph-cat-class: #9B59B6;
-  --color-graph-cat-function: #2ECC71;
-  --color-graph-cat-method: #1ABC9C;
-  --color-graph-cat-variable: #F39C12;
-  --color-graph-cat-import: #D35400;
-  --color-graph-cat-module: #5B6ABF;
-  --color-graph-cat-concept: #E74C3C;
-  --color-graph-cat-person: #FF6B6B;
-  --color-graph-cat-org: #4ECDC4;
-  --color-graph-cat-organization: #4ECDC4;
-  --color-graph-cat-product: #A29BFE;
-  --color-graph-cat-metric: #FD79A8;
-  --color-graph-cat-location: #34495E;
-  --color-graph-cat-date: #E056A0;
-  --color-graph-cat-code: #3498DB;
-  --color-graph-cat-doc: #7F8C8D;
-  --color-graph-cat-url: #00B894;
-  --color-graph-cat-email: #6C5CE7;
-  --color-graph-cat-unknown: #BDC3C7;
-  --color-graph-rel-contains: #BDC3C7;
-  --color-graph-rel-extends: #9B59B6;
-  --color-graph-rel-implements: #3498DB;
-  --color-graph-rel-imports: #E67E22;
-  --color-graph-rel-uses: #2ECC71;
-  --color-graph-rel-calls: #27AE60;
-  --color-graph-rel-references: #F39C12;
-  --color-graph-rel-related-to: #95A5A6;
-  --color-graph-rel-works-on: #E74C3C;
-  --color-graph-rel-owns: #1ABC9C;
-  --color-graph-rel-depends-on: #E67E22;
-  --color-graph-rel-parent-of: #BDC3C7;
-  --qs-content: #fff;
-  --qs-main: #fff;
-  --qs-primary-foreground: #131920;
-  --qs-secondary-foreground: #656871;
-  --qs-tertiary-foreground: #9ca3af;
-  --qs-placeholder-foreground: #8c8c94;
-  --qs-divider: #dedee3;
-  --qs-default-border: #8c8c94;
-  --qs-neutral-soft: #b4b4bb;
-  --qs-neutral-gray-50: #f9fafb;
-  --qs-tertiary-background: #f9fafb;
-  --qs-action-hover: #f3f3f7;
-  --qs-primary-default: #4200db;
-  --qs-primary-dark: #35009e;
-  --qs-primary-light: #e8e6ff;
-  --qs-success-default: #00802f;
-  --qs-error-default: #db0000;
-  --qs-font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
-  --qs-font-family: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
-  --qs-font-base-letter-spacing: .15px;
-  --qs-shadow-sm: 0 0 2px 0 #00000029, 0 0 4px 0 #00000029;
-  --qs-shadow-md: 0 0 2px 0 #00000029, 0 2px 8px 1px #00000029;
-  --qs-shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029;
-  --qs-shadow-xl: 0 4px 8px 2px #00000029, 0 6px 20px 4px #00000029;
-  --qs-width-modal-sm: 384px;
-  --qs-width-modal-md: 600px;
-  --qs-width-modal-lg: 1136px;
-  --qs-grid-gap: 16px;
-  --qs-grid-gap-xl: 24px;
-  --qs-primary-medium: #8575ff;
-  --qs-primary-inverse: #fff;
-  --qs-neutral-lightest: #f9f9fb;
-  --qs-neutral-light: #f3f3f7;
-  --qs-neutral-default: #dedee3;
-  --qs-neutral-medium: #8c8c94;
-  --qs-neutral-deep: #656871;
-  --qs-neutral-dark: #333843;
-  --qs-neutral-strong: #131920;
-  --qs-neutral-white: #fff;
-  --qs-neutral-black: #000;
-  --qs-success-medium: #005c26;
-  --qs-success-dark: #00471e;
-  --qs-success-light: #d9ffd6;
-  --qs-success-inverse: #fff;
-  --qs-info-default: #006ce0;
-  --qs-info-medium: #003b8f;
-  --qs-info-dark: #002a66;
-  --qs-info-light: #d1f1ff;
-  --qs-info-inverse: #fff;
-  --qs-warning-default: #f2b100;
-  --qs-warning-medium: #db9200;
-  --qs-warning-dark: #573a00;
-  --qs-warning-light: #fffbbd;
-  --qs-warning-inverse: #573a00;
-  --qs-warning-experimental: #f2b100;
-  --qs-warning-experimental-light: #fffbbd;
-  --qs-warning-experimental-light-foreground: #fffbbd;
-  --qs-error-medium: #900;
-  --qs-error-dark: #700000;
-  --qs-error-light: #ffe0e0;
-  --qs-error-inverse: #fff;
-  --qs-connection-default: #db3300;
-  --qs-connection-soft: #ff997a;
-  --qs-connection-light: #ffe0d6;
-  --qs-connection-dark: #661800;
-  --qs-automation-default: #b3008f;
-  --qs-automation-medium: #d600ba;
-  --qs-automation-soft: #ff94f1;
-  --qs-automation-light: #ffe0fb;
-  --qs-automation-dark: #660052;
-  --qs-insight-default: #a000b8;
-  --qs-insight-soft: #f299ff;
-  --qs-insight-light: #fce6ff;
-  --qs-insight-dark: #590066;
-  --qs-visualization-default: #7300e5;
-  --qs-visualization-soft: #d4a8ff;
-  --qs-visualization-light: #f2e5ff;
-  --qs-visualization-dark: #45008a;
-  --qs-spice: #ff9800;
-  --qs-coachmark: #006ce0;
-  --qs-brand: #fff;
-  --qs-brand-foreground: #131920;
-  --qs-brand-navbar: #131920;
-  --qs-brand-navbar-foreground: #fff;
-  --qs-brand-navbar-light: #dedee3;
-  --qs-brand-navbar-dark: #000;
-  --qs-application-navbar: #4200db;
-  --qs-application-navbar-foreground: #fff;
-  --qs-application-navbar-light: #e8e6ff;
-  --qs-application-navbar-dark: #35009e;
-  --qs-dimension: #4200db;
-  --qs-dimension-foreground: #fff;
-  --qs-dimension-experimental: #4200db;
-  --qs-dimension-experimental-foreground: #4200db;
-  --qs-measure: #00802f;
-  --qs-measure-foreground: #fff;
-  --qs-measure-experimental: #f2b100;
-  --qs-measure-experimental-foreground: #f2b100;
-  --qs-content-inverse: #333843;
-  --qs-content-inverse-active: #131920;
-  --qs-secondary: #dedee3;
-  --qs-disabled: #8c8c94;
-  --qs-divider-light: #f3f3f7;
-  --qs-hover-border: #333843;
-  --qs-active-border: #4200db;
-  --qs-disabled-border: #dedee3;
-  --qs-error-border: #ffe0e0;
-  --qs-error-active-border: #db0000;
-  --qs-disabled-foreground: #b4b4bb;
-  --qs-primary-inverse-foreground: #fff;
-  --qs-error-foreground: #db0000;
-  --qs-contrast-foreground: #131920;
-  --qs-main-foreground: #131920;
-  --qs-action-disabled: #f3f3f7;
-  --qs-action-active: #e8e6ff;
-  --qs-default-badge: #b4b4bb;
-  --qs-tag-default: #dedee3;
-  --qs-tag-soft-border: #b4b4bb;
-  --qs-focus-offset: 1px;
-  --qs-toggle-tile-sm: calc(.25rem * 8);
-  --qs-toggle-tile-md: calc(.25rem * 12);
-  --qs-toggle-tile-lg: calc(.25rem * 15);
-  --qs-shadow-pin-right: inset 4px 0 4px -4px #00000029;
-  --qs-shadow-pin-left: inset -4px 0 4px -4px #00000029;
-  --react-pdf-text-layer: 1;
-  --highlight-bg-color: rgba(180, 0, 170, 1);
-  --highlight-selected-bg-color: rgba(0, 100, 0, 1);
-  --react-pdf-annotation-layer: 1;
-  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>");
-  --input-focus-border-color: Highlight;
-  --input-focus-outline: 1px solid Canvas;
-  --input-unfocused-border-color: transparent;
-  --input-disabled-border-color: transparent;
-  --input-hover-border-color: black;
-  --link-outline: none;
-  color-scheme: light;
-}
-body { background: var(--color-bg); color: var(--color-text); }
-a { color: var(--color-link, var(--color-primary)); }</style>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clair Visual — AI That Translates Intent Into Visual Prompt</title>
+<title>Clair Visual — Step-by-Step Guide</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0a0a0a; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; color: #ffffff; font-weight: 500; letter-spacing: -0.035em; }
+body { 
+  background: #0a0a0a; 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+  color: #fff; 
+  line-height: 1.6;
+}
 
-/* Navigation */
-.nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 40px; backdrop-filter: blur(12px); }
-.nav-inner { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
-.nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: -0.035em; transition: color 0.2s; }
+/* ===== NAV ===== */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 40px;
+}
+.nav-inner { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
 .nav a:hover { color: #4d8aff; }
-.nav a.brand { color: #4d8aff; }
-.lang-toggle { display: inline-flex; align-items: center; gap: 0; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden; margin-left: 8px; }
-.lang-btn { padding: 5px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0; cursor: pointer; border: none; background: transparent; color: rgba(255,255,255,0.5); transition: all 0.2s; }
-.lang-btn.active { background: #0048f9; color: #ffffff; }
-.lang-btn:hover:not(.active) { color: #ffffff; background: rgba(255,255,255,0.08); }
+.nav .brand { color: #4d8aff; font-weight: 700; }
+.lang-toggle { display: inline-flex; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden; }
+.lang-btn { padding: 5px 12px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: rgba(255,255,255,0.5); transition: all 0.2s; }
+.lang-btn.active { background: #0048f9; color: #fff; }
+.lang-btn:hover:not(.active) { color: #fff; background: rgba(255,255,255,0.08); }
 
-/* Hero */
-.hero { padding: 80px 60px; text-align: center; background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%); }
-.hero-inner { max-width: 720px; margin: 0 auto; }
-.badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.15); padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px; color: rgba(255,255,255,0.6); }
-.badge-dot { width: 6px; height: 6px; background: #0048f9; border-radius: 3px; display: inline-block; }
-.hero h1 { font-size: 48px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.08; margin: 0 0 16px; color: #ffffff; }
-.hero .subtitle { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; margin: 0 auto 12px; max-width: 600px; font-weight: 500; letter-spacing: -0.035em; }
-.hero .meta { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 500; letter-spacing: -0.035em; }
+/* ===== HERO ===== */
+.hero { padding: 80px 60px 56px; text-align: center; background: linear-gradient(180deg, #111 0%, #0a0a0a 100%); }
+.badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.15); padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+.badge-dot { width: 6px; height: 6px; background: #0048f9; border-radius: 3px; }
+.hero h1 { font-size: 48px; font-weight: 500; letter-spacing: -0.04em; margin-bottom: 12px; }
+.hero h1 span { color: #4d8aff; }
+.hero .subtitle { font-size: 17px; color: rgba(255,255,255,0.6); max-width: 580px; margin: 0 auto 8px; }
+.hero .meta { font-size: 13px; color: rgba(255,255,255,0.35); }
 
-/* Stats Bar */
-.stats-bar { padding: 56px 60px; background: #0a0a0a; text-align: center; }
-.stats-bar .inner { max-width: 1140px; margin: 0 auto; display: flex; gap: 56px; justify-content: center; flex-wrap: wrap; }
-.stat { text-align: center; }
-.stat-value { font-size: 44px; font-weight: 500; letter-spacing: -0.035em; color: #ffffff; }
-.stat-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 8px; font-weight: 500; letter-spacing: -0.035em; }
+/* ===== SECTIONS ===== */
+.section { padding: 64px 40px; max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { font-size: 34px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 10px; }
+.section-header p { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 540px; margin: 0 auto; }
+.divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent); max-width: 1100px; margin: 0 auto; }
 
-/* Sections */
-.section { padding: 100px 60px; text-align: center; }
-.section.dark { background: #111111; }
-.section.light { background: #0a0a0a; }
-.section-inner { max-width: 1140px; margin: 0 auto; }
-.section-header { max-width: 680px; margin: 0 auto 56px; text-align: center; }
-.section-header h2 { font-size: 42px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.08; margin: 0 0 16px; color: #ffffff; }
-.section-header p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; margin: 0 auto; max-width: 560px; font-weight: 500; letter-spacing: -0.035em; }
+/* ===== ANNOTATED SCREENSHOT ===== */
+.screenshot-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 48px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.screenshot-container img {
+  width: 100%;
+  display: block;
+}
+.anno-circle {
+  position: absolute;
+  width: 36px; height: 36px;
+  background: #ff3d00;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: #fff;
+  box-shadow: 0 3px 12px rgba(255,61,0,0.5);
+  cursor: default;
+  z-index: 10;
+}
+.anno-circle::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgba(255,61,0,0.4);
+  border-radius: 50%;
+  animation: annoPulse 2s infinite;
+}
+@keyframes annoPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0; }
+}
 
-/* Cards */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 32px; text-align: center; transition: border-color 0.2s; }
-.card:hover { border-color: rgba(0,72,249,0.4); }
-.card h4 { font-size: 18px; font-weight: 500; letter-spacing: -0.035em; margin: 0 0 10px; color: #ffffff; }
-.card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; margin: 0; font-weight: 500; letter-spacing: -0.035em; }
+/* ===== STEPS ===== */
+.steps-list { max-width: 800px; margin: 0 auto; }
+.step-item {
+  display: flex; gap: 20px; align-items: flex-start;
+  margin-bottom: 28px;
+  padding: 22px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+}
+.step-item:hover { border-color: rgba(0,72,249,0.25); }
+.step-num {
+  width: 36px; height: 36px; min-width: 36px;
+  background: #ff3d00;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 800; color: #fff;
+}
+.step-text h4 { font-size: 16px; font-weight: 500; margin-bottom: 4px; letter-spacing: -0.02em; }
+.step-text p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+.step-text .widget-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 8px; padding: 4px 12px;
+  background: rgba(0,72,249,0.08);
+  border: 1px solid rgba(0,72,249,0.2);
+  border-radius: 8px;
+  font-size: 11px; font-weight: 600; color: #4d8aff;
+}
+.step-text .use-for {
+  margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.45);
+}
+.step-text .use-for strong { color: #ffb74d; }
 
-/* Gradient Orbs */
-.orb { width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 18px; box-shadow: 0 0 24px rgba(var(--orb-rgb), 0.4), 0 0 60px rgba(var(--orb-rgb), 0.15); background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.3), transparent 60%), radial-gradient(circle, var(--orb-color), transparent); }
-.orb.blue { --orb-color: #4d8aff; --orb-rgb: 77,138,255; }
-.orb.cyan { --orb-color: #00d4ff; --orb-rgb: 0,212,255; }
-.orb.purple { --orb-color: #a855f7; --orb-rgb: 168,85,247; }
-.orb.green { --orb-color: #34d399; --orb-rgb: 52,211,153; }
-.orb.amber { --orb-color: #fbbf24; --orb-rgb: 251,191,36; }
-.orb.rose { --orb-color: #fb7185; --orb-rgb: 251,113,133; }
+/* ===== CARDS ===== */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 32px; }
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 20px;
+}
+.card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
-/* Highlight Box */
-.highlight-box { background: rgba(0,72,249,0.08); border: 1px solid rgba(0,72,249,0.25); border-radius: 20px; padding: 32px 40px; margin: 32px 0; text-align: left; }
-.highlight-box strong { color: #ffffff; }
-.highlight-box p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; margin: 0; font-weight: 500; letter-spacing: -0.035em; }
+/* ===== LINK CARDS ===== */
+.link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.link-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 22px;
+}
+.link-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.link-card p { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+.link-card a {
+  display: inline-block; padding: 6px 14px;
+  border: 1px solid rgba(0,72,249,0.4); border-radius: 8px;
+  color: #4d8aff; font-size: 12px; font-weight: 600;
+  text-decoration: none; margin-right: 6px; margin-bottom: 6px;
+}
+.link-card a:hover { background: rgba(0,72,249,0.1); }
 
-/* Flow Diagram */
-.flow-diagram { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 32px 0; padding: 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; }
-.flow-step { text-align: center; padding: 16px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; min-width: 160px; letter-spacing: -0.035em; }
-.flow-step.input { background: rgba(0,72,249,0.15); border: 1px solid rgba(0,72,249,0.3); color: #4d8aff; }
-.flow-step.process { background: rgba(255,153,0,0.12); border: 1px solid rgba(255,153,0,0.3); color: #ffb347; }
-.flow-step.output { background: rgba(0,200,83,0.12); border: 1px solid rgba(0,200,83,0.3); color: #69f0ae; }
-.flow-connector { width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 12px rgba(var(--conn-rgb), 0.6), 0 0 30px rgba(var(--conn-rgb), 0.2); background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.4), transparent 60%), var(--conn-color); }
-.flow-connector.to-amber { --conn-color: #ffb347; --conn-rgb: 255,179,71; }
-.flow-connector.to-green { --conn-color: #69f0ae; --conn-rgb: 105,240,174; }
+/* ===== FOOTER ===== */
+.footer { text-align: center; padding: 48px 40px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer p { color: rgba(255,255,255,0.35); font-size: 13px; }
 
-/* Table */
-.table-wrapper { overflow-x: auto; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); background: #1a1a1a; margin: 32px 0; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; font-weight: 500; letter-spacing: -0.035em; }
-th { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.15); background: #222222; font-weight: 500; color: #ffffff; }
-td { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.75); vertical-align: top; }
-tr:last-child td { border-bottom: none; }
+/* ===== BILINGUAL ===== */
+[data-lang="en"] .vi { display: none; }
+[data-lang="vi"] .en { display: none; }
 
-/* Step List */
-.step-list { list-style: none; counter-reset: steps; margin: 32px 0; text-align: left; }
-.step-list li { counter-increment: steps; position: relative; padding: 20px 20px 20px 68px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; margin-bottom: 14px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; font-weight: 500; letter-spacing: -0.035em; }
-.step-list li::before { content: counter(steps); position: absolute; left: 18px; top: 18px; width: 36px; height: 36px; background: #0048f9; color: #fff; font-weight: 700; font-size: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-.step-list li strong { color: #ffffff; }
-
-/* Tags */
-.tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 100px; margin-right: 6px; margin-top: 10px; letter-spacing: -0.035em; }
-.tag.blue { background: rgba(0,72,249,0.15); color: #4d8aff; }
-.tag.orange { background: rgba(255,153,0,0.15); color: #ffb347; }
-.tag.green { background: rgba(0,200,83,0.15); color: #69f0ae; }
-.tag.purple { background: rgba(156,39,176,0.15); color: #ce93d8; }
-
-/* Use Case Grid */
-.use-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.use-case { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 28px; text-align: left; }
-.use-case-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #4d8aff; margin-bottom: 10px; }
-.use-case p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; margin: 0; font-weight: 500; letter-spacing: -0.035em; }
-
-/* App Links */
-.app-link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-.app-link { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 32px; text-align: left; transition: border-color 0.2s; }
-.app-link:hover { border-color: rgba(0,72,249,0.4); }
-.app-link h4 { font-size: 16px; font-weight: 500; color: #ffffff; margin: 0 0 8px; letter-spacing: -0.035em; }
-.app-link p { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0 0 16px; line-height: 1.6; font-weight: 500; letter-spacing: -0.035em; }
-.app-link a { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #4d8aff; text-decoration: none; padding: 8px 16px; border: 1px solid rgba(0,72,249,0.3); border-radius: 10px; transition: background 0.2s; letter-spacing: -0.035em; margin-right: 8px; margin-bottom: 8px; }
-.app-link a:hover { background: rgba(0,72,249,0.12); }
-.app-link a::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4d8aff; box-shadow: 0 0 8px rgba(77,138,255,0.5); display: inline-block; margin-left: 2px; }
-
-/* Footer */
-.footer { background: #000000; padding: 64px 40px; text-align: center; font-size: 13px; line-height: 2.2; border-radius: 20px; margin: 0 60px 40px; }
-.footer p { margin: 0; font-weight: 500; letter-spacing: -0.035em; }
-
-/* Language toggle */
-[lang="vi"] .en, [lang="en"] .vi { display: none; }
-
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .hero { padding: 60px 24px; }
+  .hero { padding: 48px 20px 36px; }
   .hero h1 { font-size: 32px; }
-  .section { padding: 60px 24px; }
-  .section-header h2 { font-size: 28px; }
-  .stats-bar .inner { gap: 32px; }
-  .stat-value { font-size: 32px; }
-  .nav { padding: 12px 20px; }
-  .footer { margin: 0 20px 20px; }
+  .section { padding: 40px 20px; }
+  .step-item { flex-direction: column; gap: 12px; }
+  .anno-circle { width: 28px; height: 28px; font-size: 11px; }
 }
 </style>
 </head>
-<body>
+<body data-lang="en">
 
-<!-- NAVIGATION -->
-<div class="nav">
+<!-- NAV -->
+<nav class="nav">
   <div class="nav-inner">
-    <a href="#top" class="brand">↑ Clair Visual</a>
-    <a href="#what" class="en">What Is It</a>
-    <a href="#what" class="vi">Giới Thiệu</a>
-    <a href="#magic" class="en">How It Works</a>
-    <a href="#magic" class="vi">Cách Hoạt Động</a>
-    <a href="#features" class="en">Features</a>
-    <a href="#features" class="vi">Tính Năng</a>
-    <a href="#usage" class="en">How to Use</a>
-    <a href="#usage" class="vi">Hướng Dẫn</a>
-    <a href="#formats" class="en">Ad Formats</a>
-    <a href="#formats" class="vi">Định Dạng QC</a>
-    <a href="#apps" class="en">Apps</a>
-    <a href="#apps" class="vi">Ứng Dụng</a>
-    <a href="#tips" class="en">Tips</a>
-    <a href="#tips" class="vi">Mẹo Hay</a>
+    <a href="#" class="brand">Clair Visual</a>
+    <a href="#interface">Overview</a>
+    <a href="#module1">Module 1</a>
+    <a href="#module2">Module 2</a>
+    <a href="#tips">Tips</a>
+    <a href="#apps">Next Steps</a>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="switchLang('en')">EN</button>
       <button class="lang-btn" onclick="switchLang('vi')">VI</button>
     </div>
   </div>
-</div>
+</nav>
 
 <!-- HERO -->
-<div id="top" class="hero">
-  <div class="hero-inner">
-    <div class="badge"><span class="badge-dot"></span> PartyRock App</div>
-    <h1>Clair Visual</h1>
-    <p class="subtitle en">AI That Translates Intent Into Visual Prompt — bridging the gap between human creativity and generative AI.</p>
-    <p class="subtitle vi">AI Chuyển Đổi Ý Tưởng Thành Prompt Hình Ảnh — nối liền khoảng cách giữa sáng tạo con người và AI tạo sinh.</p>
-    <p class="meta en">Developed by Dylan (Duy) Lam · Vietnam GGS · Amazon Ads · June 2026</p>
-    <p class="meta vi">Phát triển bởi Dylan (Duy) Lam · Vietnam GGS · Amazon Ads · Tháng 6, 2026</p>
+<header class="hero">
+  <div class="badge"><span class="badge-dot"></span> Step-by-Step Guide</div>
+  <h1><span>Clair</span> Visual</h1>
+  <p class="subtitle en">AI That Translates Intent Into Visual Prompt</p>
+  <p class="subtitle vi">AI Chuyển Đổi Ý Tưởng Thành Prompt Hình Ảnh</p>
+  <p class="meta">Built on Amazon PartyRock · Developed by Dylan (Duy) Lam · Vietnam GGS · June 2026</p>
+</header>
+
+<div class="divider"></div>
+
+<!-- INTERFACE SCREENSHOT WITH ANNOTATIONS -->
+<section id="interface" class="section">
+  <div class="section-header">
+    <div class="badge"><span class="badge-dot"></span> <span class="en">Interface Overview</span><span class="vi">Tổng Quan Giao Diện</span></div>
+    <h2 class="en">The Clair Visual Interface</h2>
+    <h2 class="vi">Giao Diện Clair Visual</h2>
+    <p class="en">Each numbered marker below corresponds to a step in the workflow. Follow the numbers from ① to ⑨.</p>
+    <p class="vi">Mỗi số đánh dấu bên dưới tương ứng một bước trong quy trình. Theo dõi từ ① đến ⑨.</p>
   </div>
-</div>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="inner">
-    <div class="stat">
-      <div class="stat-value">6</div>
-      <div class="stat-label en">Core features</div>
-      <div class="stat-label vi">Tính năng chính</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">5</div>
-      <div class="stat-label en">AI layers</div>
-      <div class="stat-label vi">Lớp AI xử lý</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">3</div>
-      <div class="stat-label en">Output formats</div>
-      <div class="stat-label vi">Định dạng đầu ra</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">&lt;2m</div>
-      <div class="stat-label en">Prompt generation time</div>
-      <div class="stat-label vi">Thời gian tạo prompt</div>
-    </div>
+  <div class="screenshot-container">
+    <img src="https://github.com/dylanlamwork/clairvisual/blob/main/interface_screenshot.png" alt="Clair Visual PartyRock Interface">
+    
+    <!-- Annotations positioned on the screenshot -->
+    <div class="anno-circle" style="top: 8.2%; left: 20%;">1</div>
+    <div class="anno-circle" style="top: 8.2%; left: 70%;">2</div>
+    <div class="anno-circle" style="top: 19%; left: 20%;">3</div>
+    <div class="anno-circle" style="top: 19%; left: 70%;">4</div>
+    <div class="anno-circle" style="top: 36%; left: 15%;">5</div>
+    <div class="anno-circle" style="top: 56%; left: 50%;">6</div>
+    <div class="anno-circle" style="top: 76%; left: 20%;">7</div>
+    <div class="anno-circle" style="top: 86%; left: 20%;">8</div>
+    <div class="anno-circle" style="top: 93%; left: 20%;">9</div>
   </div>
-</div>
+</section>
 
-<!-- WHAT IS IT -->
-<div id="what" class="section dark">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Overview</div>
-      <div class="badge vi"><span class="badge-dot"></span> Tổng Quan</div>
-      <h2 class="en">What is Clair Visual?</h2>
-      <h2 class="vi">Clair Visual là gì?</h2>
-      <p class="en">An AI interpretation layer built on Amazon PartyRock that transforms product descriptions into professional AI prompts — no prompt engineering expertise required.</p>
-      <p class="vi">Một lớp AI diễn giải được xây dựng trên Amazon PartyRock, chuyển đổi mô tả sản phẩm thành prompt AI chuyên nghiệp — không cần kiến thức về prompt engineering.</p>
-    </div>
+<div class="divider"></div>
 
-    <div class="highlight-box">
-      <p class="en"><strong>The Problem It Solves:</strong> Writing effective prompts for AI image/video generators is a skill gap for most advertising teams. Clair Visual eliminates this gap by automatically translating your product intent and customer mindset into professionally crafted visual prompts — specifically optimized for Amazon Advertising creatives.</p>
-      <p class="vi"><strong>Vấn đề Clair Visual giải quyết:</strong> Viết prompt hiệu quả cho AI tạo hình ảnh/video là kỹ năng mà hầu hết team quảng cáo thiếu. Clair Visual loại bỏ rào cản này bằng cách tự động chuyển đổi ý tưởng sản phẩm và tâm lý khách hàng thành prompt hình ảnh chuyên nghiệp — được tối ưu riêng cho Amazon Advertising.</p>
-    </div>
+<!-- MODULE 1 -->
+<section id="module1" class="section">
+  <div class="section-header">
+    <div class="badge"><span class="badge-dot"></span> Module 1</div>
+    <h2 class="en">Image & Video Prompts</h2>
+    <h2 class="vi">Prompt Hình Ảnh & Video</h2>
+    <p class="en">Steps ① – ⑥: Generate prompts for static images and video creatives.</p>
+    <p class="vi">Bước ① – ⑥: Tạo prompt cho hình ảnh tĩnh và video creative.</p>
   </div>
-</div>
 
-<!-- HOW IT WORKS -->
-<div id="magic" class="section light">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> The Magic</div>
-      <div class="badge vi"><span class="badge-dot"></span> Cơ Chế</div>
-      <h2 class="en">How the magic works</h2>
-      <h2 class="vi">Cách Clair Visual hoạt động</h2>
-      <p class="en">Clair Visual operates as intelligent middleware between your product knowledge and generative AI tools.</p>
-      <p class="vi">Clair Visual hoạt động như một lớp trung gian thông minh giữa kiến thức sản phẩm của bạn và các công cụ AI tạo sinh.</p>
+  <div class="steps-list">
+
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <h4 class="en">Input Product Description</h4>
+        <h4 class="vi">Nhập Mô Tả Sản Phẩm</h4>
+        <p class="en">Paste your product details: brand, product name, size, category, features, target audience, and key benefits. Use your ASIN bullet points directly.</p>
+        <p class="vi">Dán thông tin sản phẩm: thương hiệu, tên, kích thước, danh mục, tính năng, đối tượng và lợi ích chính. Copy trực tiếp bullet points từ ASIN.</p>
+        <div class="widget-tag">Input Product Description</div>
+      </div>
     </div>
 
-    <div class="flow-diagram">
-      <div class="flow-step input en">Product Description + Customer Search Terms</div>
-      <div class="flow-step input vi">Mô Tả Sản Phẩm + Từ Khóa Khách Hàng</div>
-      <span class="flow-connector to-amber"></span>
-      <div class="flow-step process en">Clair AI Interpretation Layer</div>
-      <div class="flow-step process vi">Lớp Diễn Giải Clair AI</div>
-      <span class="flow-connector to-green"></span>
-      <div class="flow-step output en">Optimized Visual / Video / Animation Prompts</div>
-      <div class="flow-step output vi">Prompt Hình Ảnh / Video / Animation Tối Ưu</div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <h4 class="en">Input Customer Search Terms</h4>
+        <h4 class="vi">Nhập Từ Khóa Khách Hàng</h4>
+        <p class="en">Enter the keywords your customers search for. Pull real queries from Brand Analytics or your search term reports.</p>
+        <p class="vi">Nhập từ khóa khách hàng tìm kiếm. Lấy từ khóa thực từ Brand Analytics hoặc báo cáo search term.</p>
+        <div class="widget-tag">Input Customers Search Terms</div>
+      </div>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="orb blue"></div>
-        <h4 class="en">Intent Understanding</h4>
-        <h4 class="vi">Hiểu Ý Định</h4>
-        <p class="en">Analyzes your product attributes and customer intent signals to understand what the visual should communicate — not just what it should look like.</p>
-        <p class="vi">Phân tích thuộc tính sản phẩm và tín hiệu ý định khách hàng để hiểu hình ảnh nên truyền tải điều gì — không chỉ nên trông như thế nào.</p>
-      </div>
-      <div class="card">
-        <div class="orb cyan"></div>
-        <h4 class="en">Content Angle Generation</h4>
-        <h4 class="vi">Tạo Góc Nội Dung</h4>
-        <p class="en">Automatically generates multiple creative angles based on product-market fit, ensuring diverse and compelling visual narratives for A/B testing.</p>
-        <p class="vi">Tự động tạo nhiều góc sáng tạo dựa trên product-market fit, đảm bảo các câu chuyện hình ảnh đa dạng và hấp dẫn cho A/B testing.</p>
-      </div>
-      <div class="card">
-        <div class="orb purple"></div>
-        <h4 class="en">Prompt Enhancement</h4>
-        <h4 class="vi">Nâng Cấp Prompt</h4>
-        <p class="en">Enhances basic concepts into detailed, technically precise prompts — including lighting, composition, mood, and style directives.</p>
-        <p class="vi">Nâng cấp khái niệm cơ bản thành prompt chi tiết, chính xác kỹ thuật — bao gồm ánh sáng, bố cục, tâm trạng và phong cách.</p>
-      </div>
-      <div class="card">
-        <div class="orb green"></div>
-        <h4 class="en">Multi-Format Output</h4>
-        <h4 class="vi">Đầu Ra Đa Định Dạng</h4>
-        <p class="en">Produces format-specific prompts optimized for static images, video sequences, and image-to-animation workflows — each tailored to their target ad placement.</p>
-        <p class="vi">Tạo prompt theo từng định dạng — hình ảnh tĩnh, chuỗi video, và chuyển ảnh tĩnh sang animation — tối ưu cho từng vị trí quảng cáo.</p>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <h4 class="en">Clair: Content Angles (Auto-generated)</h4>
+        <h4 class="vi">Clair: Góc Nội Dung (Tự Động Tạo)</h4>
+        <p class="en">Clair generates multiple creative angles — different storytelling approaches for your product visuals. Review to pick a direction.</p>
+        <p class="vi">Clair tạo nhiều góc sáng tạo — các cách kể chuyện khác nhau cho hình ảnh sản phẩm. Xem xét để chọn hướng.</p>
+        <div class="widget-tag">Clair: Content Angles</div>
       </div>
     </div>
+
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <h4 class="en">Clair: Enhanced Visual Prompts → Copy</h4>
+        <h4 class="vi">Clair: Prompt Hình Ảnh Nâng Cao → Copy</h4>
+        <p class="en">Ready-to-use image prompts with composition, lighting, styling, and mood. Copy and paste into your AI image generator.</p>
+        <p class="vi">Prompt hình ảnh sẵn sàng dùng với bố cục, ánh sáng, phong cách và cảm xúc. Copy và dán vào AI tạo hình ảnh.</p>
+        <div class="widget-tag">Clair: Enhanced Visual Generation Prompts</div>
+        <div class="use-for en"><strong>Use for:</strong> Listing A+, Sponsored Brands (SB), Sponsored Display (SD), DSP</div>
+        <div class="use-for vi"><strong>Dùng cho:</strong> Listing A+, Sponsored Brands (SB), Sponsored Display (SD), DSP</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-text">
+        <h4 class="en">Chat with Clair (Optional Refinement)</h4>
+        <h4 class="vi">Chat với Clair (Tinh Chỉnh Tùy Chọn)</h4>
+        <p class="en">Ask for variations: "Make it more minimal," "Add a summer setting," "Focus on the texture," "Give me a lifestyle angle."</p>
+        <p class="vi">Yêu cầu biến thể: "Làm tối giản hơn," "Thêm bối cảnh mùa hè," "Tập trung vào chất liệu," "Cho tôi góc lifestyle."</p>
+        <div class="widget-tag">Chat with Clair</div>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-num">6</div>
+      <div class="step-text">
+        <h4 class="en">Clair: Video Generation Prompt → Copy</h4>
+        <h4 class="vi">Clair: Prompt Tạo Video → Copy</h4>
+        <p class="en">Scene-by-scene video prompt with transitions, motion, and narrative flow. Copy into Amazon Creative Agent or video tools.</p>
+        <p class="vi">Prompt video theo cảnh với chuyển cảnh, chuyển động và dòng kể chuyện. Copy vào Amazon Creative Agent hoặc công cụ video.</p>
+        <div class="widget-tag">Clair: Video Generation Prompt</div>
+        <div class="use-for en"><strong>Use for:</strong> SBV, SDV, Online Video (OLV), Streaming TV Ads</div>
+        <div class="use-for vi"><strong>Dùng cho:</strong> SBV, SDV, Online Video (OLV), Streaming TV Ads</div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
-<!-- FEATURES -->
-<div id="features" class="section dark">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Capabilities</div>
-      <div class="badge vi"><span class="badge-dot"></span> Khả Năng</div>
-      <h2 class="en">Key features</h2>
-      <h2 class="vi">Tính năng chính</h2>
-      <p class="en">Six powerful modules working together to produce ready-to-use creative prompts.</p>
-      <p class="vi">Sáu module mạnh mẽ phối hợp để tạo prompt sáng tạo sẵn sàng sử dụng.</p>
-    </div>
+<div class="divider"></div>
 
-    <!-- EN Table -->
-    <div class="table-wrapper en">
-      <table>
-        <thead>
-          <tr><th>Feature</th><th>Description</th><th>Use For</th></tr>
-        </thead>
-        <tbody>
-          <tr><td style="color:#ffffff;"><strong>Image Generation Prompt</strong></td><td>Creates detailed prompts for static product visuals with proper composition, lighting, and brand styling</td><td>Listing A+, SB, SD, DSP</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Content Angles</strong></td><td>Generates multiple creative directions from a single product input for diverse ad testing</td><td>Campaign ideation, A/B testing</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Enhanced Visual Prompts</strong></td><td>Elevates basic prompts with technical detail — camera angles, color palettes, textures, and emotional tone</td><td>Premium creative production</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Video Generation Prompt</strong></td><td>Produces scene-by-scene video prompts including motion, transitions, and narrative flow</td><td>SBV, SDV, OLV, STV Ads</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Animation Prompt (Live Image)</strong></td><td>Converts uploaded static images into animation prompts — turning stills into motion</td><td>Sponsored Products Video (SPV)</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Chat with Clair</strong></td><td>Interactive refinement — iterate on prompts, ask for variations, or explore new creative directions</td><td>Prompt fine-tuning, exploration</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- VI Table -->
-    <div class="table-wrapper vi">
-      <table>
-        <thead>
-          <tr><th>Tính Năng</th><th>Mô Tả</th><th>Dùng Cho</th></tr>
-        </thead>
-        <tbody>
-          <tr><td style="color:#ffffff;"><strong>Prompt Tạo Hình Ảnh</strong></td><td>Tạo prompt chi tiết cho hình ảnh sản phẩm tĩnh với bố cục, ánh sáng và phong cách thương hiệu phù hợp</td><td>Listing A+, SB, SD, DSP</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Góc Nội Dung</strong></td><td>Tạo nhiều hướng sáng tạo từ một sản phẩm duy nhất để test quảng cáo đa dạng</td><td>Lên ý tưởng, A/B testing</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Prompt Nâng Cao</strong></td><td>Nâng cấp prompt cơ bản với chi tiết kỹ thuật — góc camera, bảng màu, chất liệu và tông cảm xúc</td><td>Sản xuất creative cao cấp</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Prompt Tạo Video</strong></td><td>Tạo prompt video theo từng cảnh bao gồm chuyển động, chuyển cảnh và dòng kể chuyện</td><td>SBV, SDV, OLV, STV Ads</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Prompt Animation (Live Image)</strong></td><td>Chuyển đổi ảnh tĩnh đã upload thành prompt animation — biến ảnh tĩnh thành chuyển động</td><td>Sponsored Products Video (SPV)</td></tr>
-          <tr><td style="color:#ffffff;"><strong>Chat với Clair</strong></td><td>Tinh chỉnh tương tác — lặp lại prompt, yêu cầu biến thể, hoặc khám phá hướng sáng tạo mới</td><td>Tinh chỉnh prompt, khám phá</td></tr>
-        </tbody>
-      </table>
-    </div>
+<!-- MODULE 2 -->
+<section id="module2" class="section">
+  <div class="section-header">
+    <div class="badge"><span class="badge-dot"></span> Module 2</div>
+    <h2 class="en">Static-to-Animation</h2>
+    <h2 class="vi">Chuyển Ảnh Tĩnh Sang Animation</h2>
+    <p class="en">Steps ⑦ – ⑨: Upload product photos → get motion prompts for SPV.</p>
+    <p class="vi">Bước ⑦ – ⑨: Upload ảnh sản phẩm → nhận prompt chuyển động cho SPV.</p>
   </div>
-</div>
 
-<!-- HOW TO USE -->
-<div id="usage" class="section light">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Guide</div>
-      <div class="badge vi"><span class="badge-dot"></span> Hướng Dẫn</div>
-      <h2 class="en">How to use Clair Visual</h2>
-      <h2 class="vi">Cách sử dụng Clair Visual</h2>
-      <p class="en">Two modules — one for prompt generation, one for animation.</p>
-      <p class="vi">Hai module — một để tạo prompt, một để tạo animation.</p>
-    </div>
+  <div class="steps-list">
 
-    <!-- EN Steps -->
-    <div class="en" style="text-align:left;margin-bottom:48px;">
-      <h3 style="font-size:20px;font-weight:500;color:#ffffff;margin-bottom:20px;letter-spacing:-0.035em;">Module 1: Image &amp; Video Prompt Generation</h3>
-      <ol class="step-list">
-        <li><strong>Enter Product Description</strong> — Paste your product details: name, key features, materials, target audience, and brand tone. The more specific, the better Clair's output.</li>
-        <li><strong>Enter Customer Search Terms</strong> — Input the keywords your target customers use when searching. This tells Clair the customer's mindset and buying intent.</li>
-        <li><strong>Review Content Angles</strong> — Clair generates multiple creative angles. Choose the direction that aligns with your campaign objective.</li>
-        <li><strong>Copy Enhanced Prompts</strong> — Use the enhanced visual or video prompts directly in your preferred AI generation tool (Amazon AI Studio, Midjourney, DALL-E, Runway).</li>
-        <li><strong>Iterate with Chat</strong> — Use "Chat with Clair" to refine, remix, or explore alternative creative directions without starting over.</li>
-      </ol>
-    </div>
-    <div class="en" style="text-align:left;">
-      <h3 style="font-size:20px;font-weight:500;color:#ffffff;margin-bottom:20px;letter-spacing:-0.035em;">Module 2: Static-to-Animation (Live Image)</h3>
-      <ol class="step-list">
-        <li><strong>Upload Static Images</strong> — Upload up to 4 static product images (JPG, PNG, WebP). These are the images you want to bring to life.</li>
-        <li><strong>Review Animation Prompts</strong> — Clair analyzes each image and generates motion prompts describing how elements should move, zoom, or transition.</li>
-        <li><strong>Refine via Chat</strong> — Each image has its own chat interface for targeted refinement of the animation direction.</li>
-        <li><strong>Export &amp; Generate</strong> — Copy the animation prompt into your video/animation generation tool to produce the final SPV asset.</li>
-      </ol>
+    <div class="step-item">
+      <div class="step-num">7</div>
+      <div class="step-text">
+        <h4 class="en">Upload Static Images (up to 4)</h4>
+        <h4 class="vi">Upload Ảnh Tĩnh (tối đa 4)</h4>
+        <p class="en">Upload your product images (JPG, PNG, WebP) into the 4 upload widgets. Use high-quality hero shots or lifestyle photos.</p>
+        <p class="vi">Upload ảnh sản phẩm (JPG, PNG, WebP) vào 4 widget upload. Dùng ảnh hero hoặc lifestyle chất lượng cao.</p>
+        <div class="widget-tag">Upload Static Image 1–4</div>
+      </div>
     </div>
 
-    <!-- VI Steps -->
-    <div class="vi" style="text-align:left;margin-bottom:48px;">
-      <h3 style="font-size:20px;font-weight:500;color:#ffffff;margin-bottom:20px;letter-spacing:-0.035em;">Module 1: Tạo Prompt Hình Ảnh &amp; Video</h3>
-      <ol class="step-list">
-        <li><strong>Nhập Mô Tả Sản Phẩm</strong> — Dán thông tin sản phẩm: tên, tính năng chính, chất liệu, đối tượng mục tiêu và tông thương hiệu. Càng chi tiết, kết quả càng tốt.</li>
-        <li><strong>Nhập Từ Khóa Tìm Kiếm</strong> — Nhập từ khóa mà khách hàng mục tiêu dùng khi tìm kiếm. Điều này giúp Clair hiểu tâm lý và ý định mua hàng.</li>
-        <li><strong>Xem Góc Nội Dung</strong> — Clair tạo nhiều góc sáng tạo. Chọn hướng phù hợp với mục tiêu chiến dịch của bạn.</li>
-        <li><strong>Copy Prompt Nâng Cao</strong> — Sử dụng prompt hình ảnh/video nâng cao trực tiếp trong công cụ AI bạn thích (Amazon AI Studio, Midjourney, DALL-E, Runway).</li>
-        <li><strong>Tinh Chỉnh qua Chat</strong> — Dùng "Chat with Clair" để tinh chỉnh, remix, hoặc khám phá hướng sáng tạo khác mà không cần bắt đầu lại.</li>
-      </ol>
+    <div class="step-item">
+      <div class="step-num">8</div>
+      <div class="step-text">
+        <h4 class="en">Live Image/Short Video Prompts (Auto-generated)</h4>
+        <h4 class="vi">Prompt Live Image/Video Ngắn (Tự Động Tạo)</h4>
+        <p class="en">Each uploaded image generates an animation prompt — describing camera motion, particle effects, transitions, and loop behavior.</p>
+        <p class="vi">Mỗi ảnh upload tạo prompt animation — mô tả chuyển động camera, hiệu ứng hạt, chuyển cảnh và vòng lặp.</p>
+        <div class="widget-tag">Live Image/Short Video Prompt 1–4</div>
+        <div class="use-for en"><strong>Use for:</strong> Sponsored Products Video (SPV)</div>
+        <div class="use-for vi"><strong>Dùng cho:</strong> Sponsored Products Video (SPV)</div>
+      </div>
     </div>
-    <div class="vi" style="text-align:left;">
-      <h3 style="font-size:20px;font-weight:500;color:#ffffff;margin-bottom:20px;letter-spacing:-0.035em;">Module 2: Chuyển Ảnh Tĩnh Sang Animation (Live Image)</h3>
-      <ol class="step-list">
-        <li><strong>Upload Ảnh Tĩnh</strong> — Upload tối đa 4 ảnh sản phẩm tĩnh (JPG, PNG, WebP). Đây là những ảnh bạn muốn tạo chuyển động.</li>
-        <li><strong>Xem Prompt Animation</strong> — Clair phân tích từng ảnh và tạo prompt mô tả cách các yếu tố nên di chuyển, zoom hoặc chuyển cảnh.</li>
-        <li><strong>Tinh Chỉnh qua Chat</strong> — Mỗi ảnh có giao diện chat riêng để tinh chỉnh hướng animation cụ thể.</li>
-        <li><strong>Xuất &amp; Tạo</strong> — Copy prompt animation vào công cụ tạo video/animation để tạo asset SPV hoàn chỉnh.</li>
-      </ol>
+
+    <div class="step-item">
+      <div class="step-num">9</div>
+      <div class="step-text">
+        <h4 class="en">Chat to Refine → Export</h4>
+        <h4 class="vi">Chat Tinh Chỉnh → Xuất</h4>
+        <p class="en">Each image has its own chat for refinement. Ask: "slower movement," "add particles," "camera orbit." Then copy into Creative Agent.</p>
+        <p class="vi">Mỗi ảnh có chat riêng. Yêu cầu: "chuyển động chậm hơn," "thêm hạt," "camera xoay." Sau đó copy vào Creative Agent.</p>
+        <div class="widget-tag">Chat About Live Image Prompt 1–4</div>
+      </div>
     </div>
+
   </div>
-</div>
+</section>
 
-<!-- AD FORMATS -->
-<div id="formats" class="section dark">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Ad Formats</div>
-      <div class="badge vi"><span class="badge-dot"></span> Định Dạng Quảng Cáo</div>
-      <h2 class="en">Use cases by ad format</h2>
-      <h2 class="vi">Ứng dụng theo định dạng quảng cáo</h2>
-      <p class="en">Clair Visual produces prompts tailored to every Amazon Ads placement.</p>
-      <p class="vi">Clair Visual tạo prompt được tối ưu cho mọi vị trí quảng cáo Amazon Ads.</p>
-    </div>
-
-    <div class="use-case-grid">
-      <div class="use-case">
-        <div class="use-case-label">Listing A+ Content</div>
-        <p class="en">Generate lifestyle and feature-focused image prompts that tell your product story across A+ modules.</p>
-        <p class="vi">Tạo prompt hình ảnh lifestyle và tập trung tính năng kể câu chuyện sản phẩm qua các module A+.</p>
-        <span class="tag blue">Image Prompt</span><span class="tag green">Content Angles</span>
-      </div>
-      <div class="use-case">
-        <div class="use-case-label">Sponsored Brands Video</div>
-        <p class="en">Create 15-30s video script prompts with narrative hooks optimized for brand discovery moments.</p>
-        <p class="vi">Tạo prompt kịch bản video 15-30s với hook kể chuyện tối ưu cho khoảnh khắc khám phá thương hiệu.</p>
-        <span class="tag orange">Video Prompt</span><span class="tag purple">Chat Refinement</span>
-      </div>
-      <div class="use-case">
-        <div class="use-case-label">DSP Display</div>
-        <p class="en">Produce attention-grabbing hero visuals with clear CTAs and lifestyle context for programmatic ads.</p>
-        <p class="vi">Tạo hình ảnh hero thu hút với CTA rõ ràng và bối cảnh lifestyle cho quảng cáo programmatic.</p>
-        <span class="tag blue">Image Prompt</span><span class="tag green">Enhanced Prompts</span>
-      </div>
-      <div class="use-case">
-        <div class="use-case-label">Streaming TV</div>
-        <p class="en">Build cinematic scene sequences with mood, pacing, and brand consistency for premium video placements.</p>
-        <p class="vi">Xây dựng chuỗi cảnh điện ảnh với tâm trạng, nhịp độ và nhất quán thương hiệu cho vị trí video cao cấp.</p>
-        <span class="tag orange">Video Prompt</span><span class="tag blue">Image Prompt</span>
-      </div>
-      <div class="use-case">
-        <div class="use-case-label">Sponsored Products Video</div>
-        <p class="en">Transform existing product photography into subtle motion assets that stand out in search results.</p>
-        <p class="vi">Chuyển đổi ảnh sản phẩm hiện có thành asset chuyển động tinh tế nổi bật trong kết quả tìm kiếm.</p>
-        <span class="tag purple">Animation Prompt</span><span class="tag purple">Chat Refinement</span>
-      </div>
-      <div class="use-case">
-        <div class="use-case-label">Creative Testing</div>
-        <p class="en">Rapidly generate multiple visual concepts from a single product input for systematic A/B experimentation.</p>
-        <p class="vi">Nhanh chóng tạo nhiều concept hình ảnh từ một sản phẩm duy nhất để thử nghiệm A/B có hệ thống.</p>
-        <span class="tag green">Content Angles</span><span class="tag green">Enhanced Prompts</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- APP LINKS -->
-<div id="apps" class="section light">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Apps &amp; Tools</div>
-      <div class="badge vi"><span class="badge-dot"></span> Ứng Dụng &amp; Công Cụ</div>
-      <h2 class="en">Open the apps</h2>
-      <h2 class="vi">Mở ứng dụng</h2>
-      <p class="en">Everything you need to go from prompt to final creative asset.</p>
-      <p class="vi">Tất cả những gì bạn cần để đi từ prompt đến creative asset hoàn chỉnh.</p>
-    </div>
-
-    <div class="app-link-grid">
-      <div class="app-link">
-        <div class="orb blue" style="margin:0 0 18px;"></div>
-        <h4>Clair Visual Agent</h4>
-        <p class="en">The AI prompt generator — paste your product info and get optimized prompts for image, video, and animation.</p>
-        <p class="vi">AI tạo prompt — dán thông tin sản phẩm và nhận prompt tối ưu cho hình ảnh, video và animation.</p>
-        <a href="https://partyrock.aws/u/dylanvn/e_2ZkSSpU/Clair-Visual-AI-That-Translates-Intent-Into-Visual-Prompt" target="_blank">Open on PartyRock</a>
-      </div>
-      <div class="app-link">
-        <div class="orb amber" style="margin:0 0 18px;"></div>
-        <h4>Amazon AI Studio</h4>
-        <p class="en">Generate images from your prompts. Paste Clair's enhanced image prompts here to produce static visuals.</p>
-        <p class="vi">Tạo hình ảnh từ prompt. Dán prompt hình ảnh nâng cao của Clair vào đây để tạo hình ảnh tĩnh.</p>
-        <a href="https://aistudio.amazon.com/studio" target="_blank">AI Studio</a>
-        <a href="https://advertising.amazon.com/creative-studio/studio" target="_blank">Ads Console</a>
-      </div>
-      <div class="app-link">
-        <div class="orb rose" style="margin:0 0 18px;"></div>
-        <h4>Amazon Creative Agent</h4>
-        <p class="en">Generate videos from your prompts. Paste Clair's video/animation prompts here to produce motion assets.</p>
-        <p class="vi">Tạo video từ prompt. Dán prompt video/animation của Clair vào đây để tạo asset chuyển động.</p>
-        <a href="https://aistudio.amazon.com/creative-agent" target="_blank">Creative Agent</a>
-        <a href="https://advertising.amazon.com/creative-studio/creative-agent" target="_blank">Ads Console</a>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="divider"></div>
 
 <!-- TIPS -->
-<div id="tips" class="section dark">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Best Practices</div>
-      <div class="badge vi"><span class="badge-dot"></span> Thực Hành Tốt</div>
-      <h2 class="en">Tips for best results</h2>
-      <h2 class="vi">Mẹo để có kết quả tốt nhất</h2>
-      <p class="en">Get the most out of Clair Visual with these guidelines.</p>
-      <p class="vi">Tận dụng tối đa Clair Visual với các hướng dẫn này.</p>
-    </div>
+<section id="tips" class="section">
+  <div class="section-header">
+    <h2 class="en">Tips for Best Results</h2>
+    <h2 class="vi">Mẹo Để Kết Quả Tốt Nhất</h2>
+  </div>
 
-    <div class="card-grid">
-      <div class="card">
-        <div class="orb amber"></div>
-        <h4 class="en">Be Specific in Descriptions</h4>
-        <h4 class="vi">Mô Tả Cụ Thể</h4>
-        <p class="en">Include materials, colors, dimensions, target demographic, and brand personality. "Premium stainless steel water bottle for outdoor athletes" works better than "water bottle."</p>
-        <p class="vi">Bao gồm chất liệu, màu sắc, kích thước, đối tượng mục tiêu và tính cách thương hiệu. "Bình nước inox cao cấp cho vận động viên ngoài trời" hiệu quả hơn "bình nước."</p>
-      </div>
-      <div class="card">
-        <div class="orb cyan"></div>
-        <h4 class="en">Use Real Search Terms</h4>
-        <h4 class="vi">Dùng Từ Khóa Thực</h4>
-        <p class="en">Pull actual customer search queries from your advertising console or Brand Analytics. Real search behavior produces more resonant visuals.</p>
-        <p class="vi">Lấy từ khóa tìm kiếm thực từ advertising console hoặc Brand Analytics. Hành vi tìm kiếm thực tạo hình ảnh cộng hưởng hơn.</p>
-      </div>
-      <div class="card">
-        <div class="orb rose"></div>
-        <h4 class="en">Iterate via Chat</h4>
-        <h4 class="vi">Lặp Lại qua Chat</h4>
-        <p class="en">Don't stop at the first output. Use the chat feature to ask for variations: "Make it more minimal," "Add a summer outdoor setting," or "Focus on the texture."</p>
-        <p class="vi">Đừng dừng ở kết quả đầu tiên. Dùng chat để yêu cầu biến thể: "Làm tối giản hơn," "Thêm bối cảnh ngoài trời mùa hè," hoặc "Tập trung vào chất liệu."</p>
-      </div>
-      <div class="card">
-        <div class="orb blue"></div>
-        <h4 class="en">Match Format to Placement</h4>
-        <h4 class="vi">Phù Hợp Định Dạng với Vị Trí</h4>
-        <p class="en">Use image prompts for static placements (A+, SB, SD) and video prompts for motion placements (SBV, OLV, STV). Each is optimized for its format's constraints.</p>
-        <p class="vi">Dùng prompt hình ảnh cho vị trí tĩnh (A+, SB, SD) và prompt video cho vị trí chuyển động (SBV, OLV, STV). Mỗi loại được tối ưu cho ràng buộc định dạng.</p>
-      </div>
+  <div class="card-grid">
+    <div class="card">
+      <h4><span class="en">Be Specific</span><span class="vi">Cụ Thể</span></h4>
+      <p class="en">Include materials, colors, dimensions, target audience. More detail = better prompts.</p>
+      <p class="vi">Bao gồm chất liệu, màu sắc, kích thước, đối tượng. Chi tiết hơn = prompt tốt hơn.</p>
+    </div>
+    <div class="card">
+      <h4><span class="en">Real Search Terms</span><span class="vi">Từ Khóa Thực</span></h4>
+      <p class="en">Pull actual queries from Brand Analytics — real behavior produces resonant visuals.</p>
+      <p class="vi">Lấy từ khóa thực từ Brand Analytics — tạo hình ảnh cộng hưởng hơn.</p>
+    </div>
+    <div class="card">
+      <h4><span class="en">Iterate via Chat</span><span class="vi">Lặp Qua Chat</span></h4>
+      <p class="en">Don't stop at the first output. Ask for variations, new angles, different moods.</p>
+      <p class="vi">Đừng dừng ở kết quả đầu tiên. Yêu cầu biến thể, góc mới, cảm xúc khác.</p>
+    </div>
+    <div class="card">
+      <h4><span class="en">Match Placement</span><span class="vi">Phù Hợp Vị Trí</span></h4>
+      <p class="en">Image prompts → A+, SB, SD. Video prompts → SBV, OLV, STV. Animation → SPV.</p>
+      <p class="vi">Prompt ảnh → A+, SB, SD. Prompt video → SBV, OLV, STV. Animation → SPV.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ARCHITECTURE -->
-<div id="architecture" class="section light">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="badge en"><span class="badge-dot"></span> Architecture</div>
-      <div class="badge vi"><span class="badge-dot"></span> Kiến Trúc</div>
-      <h2 class="en">Architecture overview</h2>
-      <h2 class="vi">Tổng quan kiến trúc</h2>
-      <p class="en">Built on Amazon PartyRock — chaining multiple AI interpretation steps into a pipeline from raw product data to polished creative prompts.</p>
-      <p class="vi">Xây dựng trên Amazon PartyRock — chuỗi nhiều bước diễn giải AI thành pipeline từ dữ liệu sản phẩm thô đến prompt sáng tạo hoàn chỉnh.</p>
+<div class="divider"></div>
+
+<!-- NEXT STEPS / APPS -->
+<section id="apps" class="section">
+  <div class="section-header">
+    <h2 class="en">Where to Use Your Prompts</h2>
+    <h2 class="vi">Dùng Prompt Ở Đâu</h2>
+  </div>
+
+  <div class="link-grid">
+    <div class="link-card">
+      <h4>Clair Visual Agent</h4>
+      <p class="en">The AI prompt generator on PartyRock.</p>
+      <p class="vi">AI tạo prompt trên PartyRock.</p>
+      <a href="https://partyrock.aws/u/dylanvn/e_2ZkSSpU/Clair-Visual-AI-That-Translates-Intent-Into-Visual-Prompt" target="_blank">Open PartyRock →</a>
     </div>
-
-    <!-- EN Architecture Table -->
-    <div class="table-wrapper en">
-      <table>
-        <thead>
-          <tr><th>Layer</th><th>Function</th><th>Technology</th></tr>
-        </thead>
-        <tbody>
-          <tr><td style="color:#ffffff;">Input Layer</td><td>Captures product context and customer intent</td><td>PartyRock Text Widgets</td></tr>
-          <tr><td style="color:#ffffff;">Interpretation Layer</td><td>Analyzes input, extracts key visual attributes, determines creative angles</td><td>Foundation Model (LLM)</td></tr>
-          <tr><td style="color:#ffffff;">Enhancement Layer</td><td>Transforms basic concepts into technically precise prompts</td><td>Chained AI Generation</td></tr>
-          <tr><td style="color:#ffffff;">Output Layer</td><td>Delivers format-specific prompts (image/video/animation)</td><td>PartyRock Output Widgets</td></tr>
-          <tr><td style="color:#ffffff;">Refinement Layer</td><td>Enables interactive iteration and prompt customization</td><td>PartyRock Chat Widgets</td></tr>
-        </tbody>
-      </table>
+    <div class="link-card">
+      <h4><span class="en">Image Generation</span><span class="vi">Tạo Hình Ảnh</span></h4>
+      <p class="en">Paste image prompts from Steps ③④ here.</p>
+      <p class="vi">Dán prompt hình ảnh từ Bước ③④ vào đây.</p>
+      <a href="https://aistudio.amazon.com/studio" target="_blank">AI Studio →</a>
+      <a href="https://advertising.amazon.com/creative-studio/studio" target="_blank">Ads Console →</a>
     </div>
-
-    <!-- VI Architecture Table -->
-    <div class="table-wrapper vi">
-      <table>
-        <thead>
-          <tr><th>Lớp</th><th>Chức Năng</th><th>Công Nghệ</th></tr>
-        </thead>
-        <tbody>
-          <tr><td style="color:#ffffff;">Lớp Đầu Vào</td><td>Thu thập ngữ cảnh sản phẩm và ý định khách hàng</td><td>PartyRock Text Widgets</td></tr>
-          <tr><td style="color:#ffffff;">Lớp Diễn Giải</td><td>Phân tích đầu vào, trích xuất thuộc tính hình ảnh, xác định góc sáng tạo</td><td>Foundation Model (LLM)</td></tr>
-          <tr><td style="color:#ffffff;">Lớp Nâng Cao</td><td>Chuyển đổi khái niệm cơ bản thành prompt chính xác kỹ thuật</td><td>Chained AI Generation</td></tr>
-          <tr><td style="color:#ffffff;">Lớp Đầu Ra</td><td>Cung cấp prompt theo định dạng (hình ảnh/video/animation)</td><td>PartyRock Output Widgets</td></tr>
-          <tr><td style="color:#ffffff;">Lớp Tinh Chỉnh</td><td>Cho phép lặp lại tương tác và tùy chỉnh prompt</td><td>PartyRock Chat Widgets</td></tr>
-        </tbody>
-      </table>
+    <div class="link-card">
+      <h4><span class="en">Video / Animation</span><span class="vi">Video / Animation</span></h4>
+      <p class="en">Paste video/animation prompts from Steps ⑥⑧ here.</p>
+      <p class="vi">Dán prompt video/animation từ Bước ⑥⑧ vào đây.</p>
+      <a href="https://aistudio.amazon.com/creative-agent" target="_blank">Creative Agent →</a>
+      <a href="https://advertising.amazon.com/creative-studio/creative-agent" target="_blank">Ads Console →</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
-<div class="footer">
-  <p style="color:#ffffff;">Clair Visual — AI That Translates Intent Into Visual Prompt</p>
-  <p style="color:rgba(255,255,255,0.7);">Built by <span style="color:#ffffff;">Dylan (Duy) Lam</span> — Global Partner Manager, WW Growth Sales, Amazon Ads</p>
-  <p style="margin:12px 0 0;color:rgba(255,255,255,0.5);">Last updated June 2026 · Internal use only · Powered by Amazon PartyRock</p>
-</div>
+<footer class="footer">
+  <p>Clair Visual · Built by Dylan (Duy) Lam · Vietnam GGS · June 2026</p>
+</footer>
 
 <script>
 function switchLang(lang) {
-  document.documentElement.setAttribute('lang', lang);
+  document.body.setAttribute('data-lang', lang);
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
   });
 }
-// Initialize
-document.documentElement.setAttribute('lang', 'en');
 </script>
 
-
-
-</body></html>
+</body>
+</html>
