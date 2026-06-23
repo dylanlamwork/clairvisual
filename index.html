@@ -12,12 +12,12 @@ body { background: #0a0a0a; overflow-x: hidden; font-family: 'DM Sans', -apple-s
 
 /* Navigation */
 .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 40px; backdrop-filter: blur(12px); }
-.nav-inner { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+.nav-inner { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
 .nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: -0.035em; transition: color 0.2s; }
 .nav a:hover { color: #4d8aff; }
 .nav a.brand { color: #4d8aff; }
-.nav a.nav-highlight { color: #ffffff; font-weight: 700; background: rgba(77,138,255,0.12); padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(77,138,255,0.3); }
-.nav a.nav-highlight:hover { background: rgba(77,138,255,0.2); color: #ffffff; }
+.nav a.nav-highlight { color: #ffffff; font-weight: 600; background: linear-gradient(135deg, rgba(0,72,249,0.15), rgba(77,138,255,0.08)); padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(77,138,255,0.25); letter-spacing: -0.01em; }
+.nav a.nav-highlight:hover { background: linear-gradient(135deg, rgba(0,72,249,0.25), rgba(77,138,255,0.15)); border-color: rgba(77,138,255,0.45); color: #ffffff; }
 .lang-toggle { display: inline-flex; align-items: center; gap: 0; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden; margin-left: 8px; }
 .lang-btn { padding: 5px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0; cursor: pointer; border: none; background: transparent; color: rgba(255,255,255,0.5); transition: all 0.2s; }
 .lang-btn.active { background: #0048f9; color: #ffffff; }
@@ -145,10 +145,11 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
 /* Responsive */
 @media (max-width: 768px) {
   .nav { padding: 10px 16px; }
-  .nav-inner { gap: 12px; }
-  .nav a { font-size: 12px; }
-  .hero { padding: 48px 20px; min-height: 100svh; min-height: 100vh; }
-  .hero h1 { font-size: 32px; }
+  .nav-inner { gap: 10px; }
+  .nav a { font-size: 11px; }
+  .nav a.nav-highlight { padding: 4px 10px; font-size: 11px; }
+  .hero { padding: 60px 20px 48px; min-height: auto; }
+  .hero h1 { font-size: 34px; }
   .hero-video-bg iframe { width: 200vw; height: 200vh; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 48px 20px; }
