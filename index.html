@@ -24,10 +24,10 @@ body { background: #0a0a0a; overflow-x: hidden; font-family: 'DM Sans', -apple-s
 .lang-btn:hover:not(.active) { color: #ffffff; background: rgba(255,255,255,0.08); }
 
 /* Hero */
-.hero { position: relative; padding: 80px 60px; text-align: center; overflow: hidden; }
-.hero-video-bg { position: absolute; top: 50%; left: 50%; width: 180%; height: 180%; transform: translate(-50%, -50%); pointer-events: none; z-index: 0; }
-.hero-video-bg iframe { width: 100%; height: 100%; border: none; }
-.hero-overlay { position: absolute; inset: 0; background: rgba(10,10,10,0.82); z-index: 1; }
+.hero { position: relative; padding: 80px 60px; text-align: center; overflow: hidden; width: 100%; min-height: 420px; }
+.hero-video-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.hero-video-bg iframe { position: absolute; top: 50%; left: 50%; width: 120vw; height: 120vh; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); border: none; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.85) 50%, rgba(10,10,10,0.95) 100%); z-index: 1; }
 .hero-inner { position: relative; z-index: 2; }
 .hero-inner { max-width: 720px; margin: 0 auto; }
 .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.15); padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px; color: rgba(255,255,255,0.6); }
@@ -149,7 +149,7 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
   .nav a { font-size: 12px; }
   .hero { padding: 48px 20px; }
   .hero h1 { font-size: 32px; }
-  .hero-video-bg { width: 300%; height: 300%; }
+  .hero-video-bg iframe { width: 200vw; height: 200vh; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 48px 20px; }
   .section-header h2 { font-size: 26px; }
