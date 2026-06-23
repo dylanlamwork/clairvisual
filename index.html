@@ -144,36 +144,75 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav { padding: 10px 16px; }
-  .nav-inner { gap: 10px; }
-  .nav a { font-size: 11px; }
-  .nav a.nav-highlight { padding: 4px 10px; font-size: 11px; }
-  .hero { padding: 60px 20px 48px; min-height: auto; }
-  .hero h1 { font-size: 34px; }
-  .hero-video-bg iframe { width: 200vw; height: 200vh; }
-  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Nav - compact on mobile, show only key links */
+  .nav { padding: 8px 12px; }
+  .nav-inner { gap: 8px; justify-content: space-between; }
+  .nav a { font-size: 11px; padding: 4px 6px; }
+  .nav a.brand { font-size: 12px; }
+  .nav a.nav-highlight { padding: 4px 10px; font-size: 11px; border-radius: 14px; }
+  .nav .nav-secondary { display: none; }
+
+  /* Hero - natural height, proper spacing */
+  .hero { padding: 100px 24px 60px; min-height: auto; }
+  .hero h1 { font-size: 32px; }
+  .hero .subtitle { font-size: 15px; }
+  .hero .meta { font-size: 12px; }
+  .hero-video-bg iframe { width: 300vw; height: 300vh; }
+
+  /* Stat grid */
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 100%; }
+  .stat-card { padding: 16px 12px; }
+  .stat-card .num { font-size: 24px; }
+  .stat-card .label { font-size: 11px; }
+
+  /* Sections */
   .section { padding: 48px 20px; }
-  .section-header h2 { font-size: 26px; }
+  .section-header h2 { font-size: 24px; }
+  .section-header p { font-size: 14px; }
   .problem-solution-grid { grid-template-columns: 1fr; }
-  .flow { flex-direction: column; }
+  .flow { flex-direction: column; gap: 12px; }
   .flow-arrow { transform: rotate(90deg); }
+  .flow-box { padding: 12px 18px; font-size: 12px; }
   .card-grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+
+  /* Interactive guide */
   .anno-circle { width: 28px; height: 28px; font-size: 11px; }
-  .anno-tooltip { width: 220px; padding: 12px 14px; }
+  .anno-tooltip { width: 200px; padding: 12px 14px; }
+  .anno-tooltip .tt-desc { font-size: 11px; }
+
+  /* Videos & Links */
   .video-grid { grid-template-columns: 1fr; }
   .link-grid { grid-template-columns: 1fr; }
   .demo-card { padding: 22px 18px; }
   .demo-card .demo-times { flex-direction: column; gap: 10px; }
+
+  /* Tables */
   .table-wrap { margin: 16px -20px; padding: 0 20px; }
+  table { font-size: 12px; }
+  thead th { padding: 10px 12px; }
+  tbody td { padding: 10px 12px; }
+
   .footer { padding: 36px 20px; }
 }
 
 @media (max-width: 480px) {
+  .nav-inner { gap: 6px; }
+  .nav a { font-size: 10px; padding: 3px 4px; }
+  .nav a.nav-highlight { padding: 3px 8px; font-size: 10px; }
+  .lang-toggle { margin-left: 4px; }
+  .lang-btn { padding: 4px 8px; font-size: 10px; }
+
+  .hero { padding: 80px 16px 48px; }
   .hero h1 { font-size: 28px; }
-  .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .stat-card { padding: 14px 10px; }
-  .stat-card .num { font-size: 22px; }
-  .nav a.nav-highlight { padding: 3px 8px; font-size: 11px; }
+  .hero .subtitle { font-size: 14px; }
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stat-card { padding: 12px 8px; border-radius: 10px; }
+  .stat-card .num { font-size: 20px; }
+  .stat-card .label { font-size: 10px; }
+
+  .section { padding: 36px 16px; }
+  .section-header h2 { font-size: 22px; }
 }
 </style>
 </head>
@@ -183,12 +222,12 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="brand">Clair Visual</a>
-    <a href="#overview" class="en">Overview</a><a href="#overview" class="vi">Tổng Quan</a><a href="#overview" class="cn">概述</a>
+    <a href="#overview" class="en nav-secondary">Overview</a><a href="#overview" class="vi nav-secondary">Tổng Quan</a><a href="#overview" class="cn nav-secondary">概述</a>
     <a href="#interface" class="en nav-highlight">Guide</a><a href="#interface" class="vi nav-highlight">Hướng Dẫn</a><a href="#interface" class="cn nav-highlight">使用指南</a>
     <a href="#samples" class="en nav-highlight">Samples</a><a href="#samples" class="vi nav-highlight">Mẫu</a><a href="#samples" class="cn nav-highlight">示例</a>
     <a href="#apps" class="en nav-highlight">Apps</a><a href="#apps" class="vi nav-highlight">Ứng Dụng</a><a href="#apps" class="cn nav-highlight">应用工具</a>
-    <a href="#formats" class="en">Ad Formats</a><a href="#formats" class="vi">Định Dạng QC</a><a href="#formats" class="cn">广告格式</a>
-    <a href="#tips" class="en">Tips</a><a href="#tips" class="vi">Mẹo Hay</a><a href="#tips" class="cn">实用技巧</a>
+    <a href="#formats" class="en nav-secondary">Ad Formats</a><a href="#formats" class="vi nav-secondary">Định Dạng QC</a><a href="#formats" class="cn nav-secondary">广告格式</a>
+    <a href="#tips" class="en nav-secondary">Tips</a><a href="#tips" class="vi nav-secondary">Mẹo Hay</a><a href="#tips" class="cn nav-secondary">实用技巧</a>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="switchLang('en')">EN</button>
       <button class="lang-btn" onclick="switchLang('vi')">VI</button>
