@@ -7,7 +7,8 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100..1000;1,100..1000&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0a0a0a; font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; color: #ffffff; font-weight: 500; letter-spacing: -0.035em; }
+html { overflow-x: hidden; }
+body { background: #0a0a0a; overflow-x: hidden; font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; color: #ffffff; font-weight: 500; letter-spacing: -0.035em; }
 
 /* Navigation */
 .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 40px; backdrop-filter: blur(12px); }
@@ -138,15 +139,40 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
 [data-lang="cn"] .vi { display: none; }
 
 /* Responsive */
+/* Problem/Solution grid */
+.problem-solution-grid { grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto 56px; }
+
+/* Responsive */
 @media (max-width: 768px) {
+  .nav { padding: 10px 16px; }
+  .nav-inner { gap: 12px; }
+  .nav a { font-size: 12px; }
   .hero { padding: 48px 20px; }
   .hero h1 { font-size: 32px; }
+  .hero-video-bg { width: 300%; height: 300%; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 48px 20px; }
+  .section-header h2 { font-size: 26px; }
+  .problem-solution-grid { grid-template-columns: 1fr; }
   .flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+  .card-grid { grid-template-columns: 1fr; }
   .anno-circle { width: 28px; height: 28px; font-size: 11px; }
   .anno-tooltip { width: 220px; padding: 12px 14px; }
   .video-grid { grid-template-columns: 1fr; }
+  .link-grid { grid-template-columns: 1fr; }
+  .demo-card { padding: 22px 18px; }
+  .demo-card .demo-times { flex-direction: column; gap: 10px; }
+  .table-wrap { margin: 16px -20px; padding: 0 20px; }
+  .footer { padding: 36px 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 28px; }
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-card { padding: 14px 10px; }
+  .stat-card .num { font-size: 22px; }
+  .nav a.nav-highlight { padding: 3px 8px; font-size: 11px; }
 }
 </style>
 </head>
@@ -209,7 +235,7 @@ tbody tr:hover { background: rgba(255,255,255,0.02); }
   </div>
 
   <!-- Problem / Solution -->
-  <div class="card-grid" style="grid-template-columns:1fr 1fr;max-width:800px;margin:0 auto 56px;">
+  <div class="card-grid problem-solution-grid">
     <div class="card">
       <h4 class="en" style="color:rgba(255,100,100,0.9);">The Problem</h4>
       <h4 class="vi" style="color:rgba(255,100,100,0.9);">Vấn Đề</h4>
